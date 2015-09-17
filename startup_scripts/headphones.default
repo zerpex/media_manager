@@ -1,2 +1,0 @@
-HP_USER=www-data
-HP_OPTS=" --config=/opt/headphones/config.ini"
