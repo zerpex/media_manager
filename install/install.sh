@@ -22,7 +22,7 @@ do
     (2) SickRage   
     (3) uBooquity
     (4) ChouchPotato (sarakha63's fork)
-    (5) HeadPhones (sarakha63's fork)  
+    (5) HeadPhones  
     (6) Maraschino   
     (7) Powerline-shell
 

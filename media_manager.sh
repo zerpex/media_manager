@@ -45,7 +45,7 @@ EOF
     case "$REPLY" in
     "1")source install/install.sh;;
 	"2")source backup/save_conf.sh;;
-	"3")source backup/restore_conf.sh;;
+	"3")source remove/remove.sh;;
 	"4")echo "Upgrading the system..."
         apt-get -y upgrade ;;
 	"5")source backup/save_global_conf.sh;;
