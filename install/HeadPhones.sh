@@ -10,14 +10,14 @@ echo " "
 echo " "
 echo " Cloning git repository..."
 sudo mkdir -p /opt/headphones
-sudo git clone https://github.com/sarakha63/headphones.git /opt/headphones
+#sudo git clone https://github.com/sarakha63/headphones.git /opt/headphones
+sudo git clone https://github.com/rembo10/headphones.git /opt/headphones
 
 echo " "
 echo " "
 echo " Create config file and launcher..."
 sudo cp /opt/headphones/init-scripts/init.ubuntu /etc/init.d/headphones
-sudo echo "HP_USER=www-data" > /etc/default/headphones
-sudo echo "HP_OPTS=\" --config=/opt/headphones/config.ini\"" >> /etc/default/headphones
+sudo cp startup_scripts/headphones.default /etc/default/headphones
 sudo chmod +x /etc/init.d/headphones
 
 echo " "
