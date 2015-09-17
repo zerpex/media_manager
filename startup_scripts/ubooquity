@@ -1,0 +1,42 @@
+#!/bin/sh
+
+case $1 in
+    start)
+        echo "Starting ubooquity ..."
+        if [ ! -f /usr/local/ubooquity/pid ]; then
+            nohup java -Duser.dir='/opt/Ubooquity' -jar -Xmx512m /opt/ubooquity/Ubooquity.jar -webadmin -headless -port 2022 >> /dev/null >> /dev/null &
+            echo $! > /usr/local/ubooquity/pid
+            echo "ubooquity started ..."
+        else
+            echo "ubooquity is already running ..."
+        fi
+    ;;
+    stop)
+        if [ -f /usr/local/ubooquity/pid ]; then
+            PID=$(cat /usr/local/ubooquity/pid);
+            echo "Stopping ubooquity ..."
+            kill $PID;
+            echo "ubooquity stopped ..."
+            rm /usr/local/ubooquity/pid
+        else
+            echo "ubooquity is not running ..."
+        fi
+    ;;
+    restart)
+        if [ -f /usr/local/ubooquity/pid ]; then
+            PID=$(cat /usr/local/ubooquity/pid);
+            echo "Stopping ubooquity ...";
+            kill $PID;
+            echo "ubooquity stopped ...";
+            rm /usr/local/ubooquity/pid
+
+            echo "Starting ubooquity ..."
+            nohup java -Duser.dir='/opt/Ubooquity' -jar -Xmx512m /opt/ubooquity/Ubooquity.jar -webadmin -headless -port 2022 >> /dev/null >> /dev/null &
+            echo $! > /usr/local/ubooquity/pid
+            echo "ubooquity started ..."
+        else
+            echo "ubooquity is not running ..."
+        fi
+    ;;
+esac
+exit 0
