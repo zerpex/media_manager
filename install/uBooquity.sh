@@ -60,8 +60,8 @@ sudo service ubooquity stop
 sleep 2
 
 #--- preferences file update
-sudo sed -i 's/<portNumber>2202<\/portNumber>/<portNumber>$UBPORT<\/portNumber>/g' $UBDATA/preferences.xml
-sudo sed -i 's/<reverseProxyPrefix><\/reverseProxyPrefix>/<reverseProxyPrefix>$UBWEB<\/reverseProxyPrefix>/g' $UBDATA/preferences.xml
+sudo sed -i 's/<portNumber>2202<\/portNumber>/<portNumber>'"$UBPORT"'<\/portNumber>/g' $UBDATA/preferences.xml
+sudo sed -i 's/<reverseProxyPrefix><\/reverseProxyPrefix>/<reverseProxyPrefix>'"$UBWEB"'<\/reverseProxyPrefix>/g' $UBDATA/preferences.xml
 
 echo " "
 echo -e "${CYELLOW} Give www-data access rights on files...$CEND"
