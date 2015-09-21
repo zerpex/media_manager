@@ -8,7 +8,7 @@ if [ "$[$(date +%s) - $(stat -c %Z /var/cache/apt)]" -ge 1800 ]
 then
 	sudo apt-get update
 fi
-sudo apt-get -y install curl git unzip
+sudo apt-get -y install sudo curl git unzip
 
 while :
 do
