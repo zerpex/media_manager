@@ -14,23 +14,23 @@ I also included :
 - DNSmasq + ad-block filters
 - Powerline-shell : for a beautifull prompt :)
 
-How to use :
-- Clone repository :
-git clone https://github.com/zerpex/media_manager.git 
+<b>How to use :</b>
+- Clone repository :<br>
+<i>git clone https://github.com/zerpex/media_manager.git </i>
 
-- Have a look at variables.sh in order to change options
-vi variables.sh
+- Have a look at variables.sh in order to change options<br>
+<i>vi variables.sh</i>
 
-- Launch the scrip :
-sudo ./media_manager.sh
+- Launch the scrip :<br>
+<i>sudo ./media_manager.sh</i>
 
 - Follow the menus :)
 
-<b>Default access URLs :</b>
-Maraschino : http://xxx.xxx.xxx.xxx:42000
-SickRage : http://xxx.xxx.xxx.xxx:42001/tv
-uBooquity : http://xxx.xxx.xxx.xxx:42002/bd
-Couchpotato : http://xxx.xxx.xxx.xxx:42003/movies
+<b>Default access URLs :</b><br>
+Maraschino : http://xxx.xxx.xxx.xxx:42000<br>
+SickRage : http://xxx.xxx.xxx.xxx:42001/tv<br>
+uBooquity : http://xxx.xxx.xxx.xxx:42002/bd<br>
+Couchpotato : http://xxx.xxx.xxx.xxx:42003/movies<br>
 Headphones : http://xxx.xxx.xxx.xxx:42004/music
 
 To do :
