@@ -26,5 +26,12 @@ sudo ./media_manager.sh
 
 - Follow the menus :)
 
+Default access URLs :
+Maraschino : http://xxx.xxx.xxx.xxx:42000
+SickRage : http://xxx.xxx.xxx.xxx:42001/tv
+uBooquity : http://xxx.xxx.xxx.xxx:42002/bd
+Couchpotato : http://xxx.xxx.xxx.xxx:42003/movies
+Headphones : http://xxx.xxx.xxx.xxx:42004/music
+
 To do :
 - nginx with reverse conf
