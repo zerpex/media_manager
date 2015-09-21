@@ -1,0 +1,18 @@
+v.1.2 (21/09/2015)
+- Ré-écriture complète des scripts d'installation et de suppression :
+   - Passage d'un max de choses en variables
+   - Edition automatique des confs en fonction des variables
+- Remplacement des forks de Sarakha63 par les versions officielles de Couchpotato et Headphones.
+- Headphones répond maintenant aux requêtes du réseau entier (et non plus en localhost uniquement).
+
+ v.1.1 (17/09/2015) 
+- Passage de SickRage et Headphones sur les versions officielles.
+- Éclatement du script en plusieurs pour gagner en modularité.
+- Contrôle du système d'exploitation.
+- Backup des confs et bases des apps supportées.
+- Backup des principaux fichiers systèmes (hostname, réseau...).
+- Restauration des fichiers systèmes.
+- Suppression des apps
+
+v1.0 (16/09/2015)
+-Version originale.
