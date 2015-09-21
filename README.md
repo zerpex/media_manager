@@ -31,7 +31,8 @@ Maraschino : http://xxx.xxx.xxx.xxx:42000<br>
 SickRage : http://xxx.xxx.xxx.xxx:42001/tv<br>
 uBooquity : http://xxx.xxx.xxx.xxx:42002/bd<br>
 Couchpotato : http://xxx.xxx.xxx.xxx:42003/movies<br>
-Headphones : http://xxx.xxx.xxx.xxx:42004/music
+Headphones : http://xxx.xxx.xxx.xxx:42004/music<br>
+xxx.xxx.xxx.xxx is the default IP adress of your serveur.
 
 To do :
 - nginx with reverse conf
