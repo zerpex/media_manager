@@ -1,5 +1,8 @@
 #!/bin/bash
-# This script automatically install some services to any debian based distro.
+# This script is the menu for the remove part.
+#
+# Author        : zerpex
+# Last update   : 2015-09-21
 
 #  includes
 INCLUDES="./"
@@ -29,15 +32,63 @@ do
 EOF
     read -n1 -s
     case "$REPLY" in
-    "1")source remove/DNSmasq.sh;;
-    "2")source remove/SickRage.sh;;
-    "3")source remove/uBooquity.sh;;
-    "4")source remove/CouchPotato.sh;;
-    "5")source remove/HeadPhones.sh;;
-    "6")source remove/Maraschino.sh;;
-    "7")source remove/Powerline-shell.sh;;
-    "8")sudo rm /etc/nginx/sites-available/reverse
-	sudo services nginx restart;;
+    "1")echo -e "${CYELLOW}You are about to completely remove DNSmasq (app + DATA). Please confim ( y / n ) : $CEND"
+	read confirm
+	if [ $confirm == "y" ]
+	then
+		source remove/DNSmasq.sh
+	fi
+		source remove/remove.sh;;
+    "2")echo -e "${CYELLOW}You are about to completely remove SickRage (app + DATA). Please confim ( y / n ) : $CEND"
+	read confirm
+	if [ $confirm == "y" ]
+	then
+		source remove/SickRage.sh
+	fi
+		source remove/remove.sh;;
+    "3")echo -e "${CYELLOW}You are about to completely remove uBooquity (app + DATA). Please confim ( y / n ) : $CEND"
+	read confirm
+	if [ $confirm == "y" ]
+	then
+		source remove/uBooquity.sh
+	fi
+		source remove/remove.sh;;
+    "4")echo -e "${CYELLOW}You are about to completely remove CouchPotato (app + DATA). Please confim ( y / n ) : $CEND"
+	read confirm
+	if [ $confirm == "y" ]
+	then
+		source remove/CouchPotato.sh
+	fi
+		source remove/remove.sh;;
+    "5")echo -e "${CYELLOW}You are about to completely remove HeadPhones (app + DATA). Please confim ( y / n ) : $CEND"
+	read confirm
+	if [ $confirm == "y" ]
+	then
+		source remove/HeadPhones.sh
+	fi
+		source remove/remove.sh;;
+    "6")echo -e "${CYELLOW}You are about to completely remove Maraschino (app + DATA). Please confim ( y / n ) : $CEND"
+	read confirm
+	if [ $confirm == "y" ]
+	then
+		source remove/Maraschino.sh
+	fi
+		source remove/remove.sh;;
+    "7")echo -e "${CYELLOW}You are about to completely remove Powerline-shell (app + DATA). Please confim ( y / n ) : $CEND"
+	read confirm
+	if [ $confirm == "y" ]
+	then
+		source remove/Powerline-shell.sh
+	fi
+		source remove/remove.sh;;
+    "8")echo -e "${CYELLOW}You are about to completely remove reverse proxy settings. Please confim ( y / n ) : $CEND"
+	read confirm
+	if [ $confirm == "y" ]
+	then
+		sudo rm /etc/nginx/sites-available/reverse
+		sudo services nginx restart
+	fi
+		source remove/remove.sh;;
     [rR] | [r|R])source media_manager.sh;;
     [qQ] | [q|Q])exit;;
      * )  echo "invalid option";;
