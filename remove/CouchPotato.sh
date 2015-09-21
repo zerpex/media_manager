@@ -16,7 +16,6 @@ echo -e "${CBLUE}=============================$CEND"
 echo -e "${CRED}     Removing Couchpotato$CEND"
 echo -e "${CBLUE}-----------------------------$CEND"
 echo " "
-
 echo -e "${CYELLOW} Turning services off...$CEND"
 sudo service couchpotato stop
 

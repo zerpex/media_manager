@@ -1,25 +1,35 @@
 #!/bin/bash
-# This script removes Sarakha63's fork of SickRage.
-# 
+# This script removes SickRage.
+#
+# Author        : zerpex
+# Last update   : 2015-09-21
 
-echo "=============================="
-echo "    Removing SickRage"
-echo "------------------------------"
+
+#  includes
+INCLUDES="./"
+. "$INCLUDES"variables.sh
+
+clear
 echo " "
 echo " "
-echo "Turning services off..."
+echo -e "${CBLUE}=============================$CEND"
+echo -e "${CRED}     Removing SickRage$CEND"
+echo -e "${CBLUE}-----------------------------$CEND"
+echo " "
+echo -e "${CYELLOW} Turning services off...$CEND"
 sudo service sickrage stop
 
-echo " Removing SickRage files..."
-sudo rm -R /opt/sickrage
+echo -e "${CYELLOW} Removing SickRage files...$CEND"
+sudo rm -R $SRPATH
+sudo rm -R $SRDATA
 
-echo " Removing config files and launcher..."
+echo -e "${CYELLOW} Removing config files and launcher...$CEND"
 sudo rm /etc/init.d/sickrage
 sudo rm /etc/default/sickrage
 sudo rm -R /var/run/sickrage
 
-echo " Remove SickRage automatic startup..."
+echo -e "${CYELLOW} Remove SickRage automatic startup...$CEND"
 sudo update-rc.d sickrage remove
 
 echo " "
-echo "OK. SickRage removed."
+echo -e "${CRED}OK. SickRage removed.$CEND"

@@ -1,22 +1,34 @@
 #!/bin/bash
-# This script Removes Maraschino.
-# 
+# This script removes Maraschino.
+#
+# Author        : zerpex
+# Last update   : 2015-09-21
 
-echo "=============================="
-echo "    removing Maraschino"
-echo "------------------------------"
 
+#  includes
+INCLUDES="./"
+. "$INCLUDES"variables.sh
+
+clear
 echo " "
 echo " "
-echo "Turning services off..."
+echo -e "${CBLUE}=============================$CEND"
+echo -e "${CRED}     Removing Maraschino$CEND"
+echo -e "${CBLUE}-----------------------------$CEND"
+echo " "
+echo -e "${CYELLOW} Turning services off...$CEND"
 sudo service maraschino stop
 
-echo " Create config file and launcher..."
+echo -e "${CYELLOW} Removing Maraschino files...$CEND"
+sudo rm -R $MSPATH
+
+echo -e "${CYELLOW} Removing config files and launcher...$CEND"
 sudo rm /etc/init.d/maraschino
 sudo rm /etc/default/maraschino
-sudo rm -R /opt/maraschino
 
-echo " Remove Maraschino automatic startup..."
+
+echo -e "${CYELLOW} Remove Maraschino automatic startup...$CEND"
 sudo update-rc.d maraschino remove
 
-echo "OK. Maraschino installed and running."
+echo " "
+echo -e "${CRED} OK. Maraschino removed.$CEND"

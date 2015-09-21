@@ -1,25 +1,35 @@
 #!/bin/bash
-# This script removes Sarakha63's fork of CouchPotato.
-# 
+# This script removes Headphones.
+#
+# Author        : zerpex
+# Last update   : 2015-09-21
 
-echo "=============================="
-echo "    Removing HeadPhones"
-echo "------------------------------"
+
+#  includes
+INCLUDES="./"
+. "$INCLUDES"variables.sh
+
+clear
 echo " "
 echo " "
-echo "Turning services off..."
+echo -e "${CBLUE}=============================$CEND"
+echo -e "${CRED}     Removing Headphones$CEND"
+echo -e "${CBLUE}-----------------------------$CEND"
+echo " "
+echo -e "${CYELLOW} Turning services off...$CEND"
 sudo service headphones stop
 
-echo " Removing HeadPhones files..."
-sudo rm -R /opt/headphones
+echo -e "${CYELLOW} Removing Headphones files...$CEND"
+sudo rm -R $HPPATH
+sudo rm -R $HPDATA
 
-echo " Removing config files and launcher..."
+echo -e "${CYELLOW} Removing config files and launcher...$CEND"
 sudo rm /etc/init.d/headphones
 sudo rm /etc/default/headphones
 sudo rm -R /var/run/headphones
 
-echo " Remove HeadPhones automatic startup..."
+echo -e "${CYELLOW} Remove Couchpotato automatic startup...$CEND"
 sudo update-rc.d headphones remove
 
 echo " "
-echo "OK. HeadPhones removed."
+echo -e "${CRED} OK. Headphones removed.$CEND"

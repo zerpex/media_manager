@@ -1,22 +1,34 @@
 #!/bin/bash
-# This script installs uBooquity.
-# 
+# This script removes uBooquity.
+#
+# Author        : zerpex
+# Last update   : 2015-09-21
 
-echo "=============================="
-echo "    Removing uBooquity"
-echo "------------------------------"
+
+#  includes
+INCLUDES="./"
+. "$INCLUDES"variables.sh
+
+clear
 echo " "
 echo " "
-echo "Turning services off..."
+echo -e "${CBLUE}=============================$CEND"
+echo -e "${CRED}     Removing uBooquity$CEND"
+echo -e "${CBLUE}-----------------------------$CEND"
+echo " "
+echo -e "${CYELLOW} Turning services off...$CEND"
 sudo service ubooquity stop
 
-echo " Removing uBooquity files..."
-sudo rm -R /opt/ubooquity
-sudo rm -R /usr/local/ubooquity
-sudo rm /etc/init.d/ubooquity
+echo -e "${CYELLOW} Removing uBooquity files...$CEND"
+sudo rm -R $UBPATH
+sudo rm -R $UBDATA
 
-echo " Remove uBooquity automatic startup..."
+echo -e "${CYELLOW} Removing config files and launcher...$CEND"
+sudo rm /etc/init.d/ubooquity
+sudo rm /etc/default/ubooquity
+sudo rm -R /var/run/ubooquity
+
+echo -e "${CYELLOW} Remove uBooquity automatic startup...$CEND"
 sudo update-rc.d ubooquity remove
 
-echo "OK. uBooquity removed."
-done+=(ubooquity)
+echo -e "${CRED}OK. uBooquity removed.$CEND"
