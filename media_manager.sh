@@ -15,6 +15,10 @@
 # v 1.0
 # - Original script.
 
+#  includes
+INCLUDES="./"
+. "$INCLUDES"variables.sh
+
 if [ ! -f /etc/debian_version ];
 then
 	echo " This script has been writen for Debian-based distros."

@@ -1,35 +1,45 @@
 #!/bin/bash
 # This script installs Maraschino.
-# 
+#
+# Author        : zerpex
+# Last update   : 2015-09-21
 
-echo "=============================="
-echo "    Installing Maraschino"
-echo "------------------------------"
+#  includes
+INCLUDES="./"
+. "$INCLUDES"variables.sh
+
+clear
+echo " "
+echo " "
+echo -e "${CBLUE}=============================$CEND"
+echo -e "${CGREEN}     Installing Maraschino$CEND"
+echo -e "${CBLUE}-----------------------------$CEND"
+echo " "
+echo -e "${CYELLOW} Cloning git repository...$CEND"
+sudo mkdir -p /opt/maraschino
+sudo git clone https://github.com/mrkipling/maraschino.git $MSPATH
 
 echo " "
-echo " "
-echo " Cloning git repository..."
-sudo mkdir -o /opt/maraschino
-sudo git clone https://github.com/mrkipling/maraschino.git /opt/maraschino
 
-echo " "
-echo " "
-echo " Create config file and launcher..."
-sudo cp /opt/maraschino/initd /etc/init.d/maraschino
-sudo cp /opt/maraschino/default /etc/default/maraschino
+echo -e "${CYELLOW} Create config file and launcher...$CEND"
+sudo cp $MSPATH/initd /etc/init.d/maraschino
+sudo cp $MSPATH/default /etc/default/maraschino
 sudo chmod +x /etc/init.d/maraschino
 
+sudo sed -i 's/APP_PATH=\/opt\/maraschino/APP_PATH='"$MSPATH"'/g' /etc/init.d/maraschino
+sudo sed -i 's/RUN_AS=www-data/RUN_AS='"$MSUSER"'/g' /etc/init.d/maraschino
+sudo sed -i 's/PORT=7000/PORT='"$MSPORT"'/g' /etc/init.d/maraschino
+sudo sed -i 's/#WEBROOT=\/maraschino/WEBROOT=\/'"$MSWEB"'/g' /etc/init.d/maraschino
 
 echo " "
-echo " "
-echo " Start Maraschino automatically when server start..."
+echo -e "${CYELLOW} Start HeadPhones automatically when server start...$CEND"
 sudo update-rc.d maraschino defaults
 
+
 echo " "
-echo " "
-echo "Turning services on..."
+echo -e "${CYELLOW} Turning services on...$CEND"
 sudo service maraschino start
-
-echo "OK. Maraschino installed and running."
-
+MSPID=`sudo cat /var/run/maraschino/maraschino.pid`
 done+=(maraschino)
+
+echo -e "${CGREEN} OK. Maraschino installed and running.$CEND"

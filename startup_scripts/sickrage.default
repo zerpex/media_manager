@@ -1,6 +1,2 @@
-#SB_USER=www-data
-#SB_OPTS=" --config=/opt/sickrage/config.ini"
-
 SR_USER=www-data
 SR_GROUP=www-data
-SR_OPTS=" --config=/opt/sickrage/config.ini"

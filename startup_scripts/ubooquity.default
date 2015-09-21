@@ -1,0 +1,6 @@
+UB_USER=www-data
+UB_GROUP=www-data
+UB_HOME=/opt/ubooquity
+UB_DATA=/opt/ubooquity
+UB_PORT=42002
+UB_RAM=512m

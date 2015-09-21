@@ -53,8 +53,7 @@ then
 	sudo service couchpotato stop
 	echo " Saving CouchPotato's configuration..."
 	sudo mkdir -p $REPBACKUP/couchpotato
-	sudo cp /opt/couchpotato/settings.conf $REPBACKUP/couchpotato/
-	sudo cp -r /opt/couchpotato/database $REPBACKUP/couchpotato/
+	sudo cp -r /var/opt/couchpotato $REPBACKUP/couchpotato/
 	sudo service couchpotato start
 fi
 

@@ -1,2 +1,4 @@
 CP_USER=www-data
+CP_GROUP=www-data
 CP_HOME=/opt/couchpotato
+CP_DATA=/opt/couchpotato

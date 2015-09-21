@@ -1,38 +1,118 @@
 #!/bin/sh
+#
+### BEGIN INIT INFO
+# Provides:          uBooquity
+# Required-Start:    $local_fs $network $remote_fs
+# Required-Stop:     $local_fs $network $remote_fs
+# Should-Start:      $NetworkManager
+# Should-Stop:       $NetworkManager
+# Default-Start:     2 3 4 5
+# Default-Stop:      0 1 6
+# Short-Description: starts instance of ubooquity
+# Description:       starts instance of ubooquity using start-stop-daemon
+### END INIT INFO
+
+# Load the VERBOSE setting and other rcS variables
+. /lib/init/vars.sh
+
+# Define LSB log_* functions.
+# Depend on lsb-base (>= 3.0-6) to ensure that this file is present.
+. /lib/lsb/init-functions
+
+# Source uBooquity configuration
+if [ -f /etc/default/ubooquity ]; then
+    . /etc/default/ubooquity
+else
+    [ "${VERBOSE}" != no ] && echo "/etc/default/ubooquity not found. Using default settings.";
+fi
+
+## Don't set -e
+## Don't edit this file!
+## Edit user configuation in /etc/default/ubooquity to change
+##
+## UB_USER=         #$RUN_AS, username to run ubooquity under, the default is ubooquity
+## UB_GROUP=        #$RUN_GROUP, group to run ubooquity under, the default is ubooquity
+## UB_HOME=         #$APP_PATH, the location of Ubooquity.jar, the default is /opt/ubooquity
+## UB_DATA=         #$DATA_DIR, the location of the database, cache, logs, the default is /opt/ubooquity
+## UB_PORT=         #$WEB_PORT, the port to access uBooquity, the default is 2022
+## UB_PIDFILE=      #$PID_FILE, the location of ubooquity.pid, the default is $UB_PIDFILE
+## JAVA_BIN=        #$DAEMON, the location of the java binary, the default is /usr/lib/jvm/java-8-oracle/jre/bin/java
+## UB_RAM=	    #$RAM allocated to ubooquity's jvm, the default id 512m
+##
+## EXAMPLE if want to run as different user
+## add UB_USER=username to /etc/default/ubooquity
+## otherwise default ubooquity is used
+
+# Script name
+NAME=$(basename "$0")
+
+# App name
+DESC=ubooquity
+
+## The defaults
+# Run as username
+RUN_AS=${UB_USER-ubooquity}
+
+# Run as group
+RUN_GROUP=${UB_GROUP-ubooquity}
+
+# Path to app UB_HOME=path_to_app_SickBeard.py
+APP_PATH=${UB_HOME-/opt/ubooquity}
+
+# Data directory where sickbeard.db, cache and logs are stored
+DATA_DIR=${UB_DATA-/opt/ubooquity}
+
+# Path to java binaries
+DAEMON=${JAVA_BIN-/usr/lib/jvm/java-8-oracle/jre/bin}
+
+# Path to store PID file
+PID_FILE=${UB_PIDFILE-/var/run/ubooquity/ubooquity.pid}
+
+# RAM allocated to ubooquity's jvm
+RAM=${UB_RAM-512m}
+
+# Web port to access ubooquity
+WEB_PORT=${UB_PORT-2022}
+##
+
+PID_PATH=$(dirname $PID_FILE)
+DAEMON_OPTS=" -Duser.dir=$DATA_DIR -jar -Xmx$RAM $APP_PATH/Ubooquity.jar -webadmin -headless -port $WEB_PORT"
+
+## start-stop-restart script
 
 case $1 in
     start)
         echo "Starting ubooquity ..."
-        if [ ! -f /usr/local/ubooquity/pid ]; then
-            nohup java -Duser.dir='/opt/Ubooquity' -jar -Xmx512m /opt/ubooquity/Ubooquity.jar -webadmin -headless -port 2022 >> /dev/null >> /dev/null &
-            echo $! > /usr/local/ubooquity/pid
+        if [ ! -f $PID_FILE ]; then
+            nohup sudo -u $RUN_AS $DAEMON/java $DAEMON_OPTS >> /dev/null >> /dev/null &
+            echo $! > $PID_FILE
             echo "ubooquity started ..."
         else
             echo "ubooquity is already running ..."
         fi
     ;;
     stop)
-        if [ -f /usr/local/ubooquity/pid ]; then
-            PID=$(cat /usr/local/ubooquity/pid);
+        if [ -f $PID_FILE ]; then
+            PID=$(cat $PID_FILE);
             echo "Stopping ubooquity ..."
             kill $PID;
             echo "ubooquity stopped ..."
-            rm /usr/local/ubooquity/pid
+            rm $PID_FILE
         else
             echo "ubooquity is not running ..."
         fi
     ;;
     restart)
-        if [ -f /usr/local/ubooquity/pid ]; then
-            PID=$(cat /usr/local/ubooquity/pid);
+        if [ -f $PID_FILE ]; then
+            PID=$(cat $PID_FILE);
             echo "Stopping ubooquity ...";
             kill $PID;
             echo "ubooquity stopped ...";
-            rm /usr/local/ubooquity/pid
+            rm $PID_FILE
 
             echo "Starting ubooquity ..."
-            nohup java -Duser.dir='/opt/Ubooquity' -jar -Xmx512m /opt/ubooquity/Ubooquity.jar -webadmin -headless -port 2022 >> /dev/null >> /dev/null &
-            echo $! > /usr/local/ubooquity/pid
+            nohup sudo -u $RUN_AS $DAEMON/java $DAEMON_OPTS >> /dev/null >> /dev/null &
+            echo $! > $PID_FILE
             echo "ubooquity started ..."
         else
             echo "ubooquity is not running ..."

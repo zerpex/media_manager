@@ -1,25 +1,36 @@
 #!/bin/bash
-# This script removes Sarakha63's fork of CouchPotato.
-# 
+# This script removes Couchpotato.
+#
+# Author        : zerpex
+# Last update   : 2015-09-21
 
-echo "=============================="
-echo "    Removing CouchPotato"
-echo "------------------------------"
+
+#  includes
+INCLUDES="./"
+. "$INCLUDES"variables.sh
+
+clear
 echo " "
 echo " "
-echo "Turning services off..."
+echo -e "${CBLUE}=============================$CEND"
+echo -e "${CRED}     Removing Couchpotato$CEND"
+echo -e "${CBLUE}-----------------------------$CEND"
+echo " "
+
+echo -e "${CYELLOW} Turning services off...$CEND"
 sudo service couchpotato stop
 
-echo " Removing Couchpotato files..."
-sudo rm -R /opt/couchpotato
+echo -e "${CYELLOW} Removing Couchpotato files...$CEND"
+sudo rm -R $CPPATH
+sudo rm -R $CPDATA
 
-echo " Removing config files and launcher..."
+echo -e "${CYELLOW} Removing config files and launcher...$CEND"
 sudo rm /etc/init.d/couchpotato
 sudo rm /etc/default/couchpotato
 sudo rm -R /var/run/couchpotato
 
-echo " Remove Couchpotato automatic startup..."
+echo -e "${CYELLOW} Remove Couchpotato automatic startup...$CEND"
 sudo update-rc.d couchpotato remove
 
 echo " "
-echo "OK. CouchPotato removed."
+echo -e "${CRED} OK. CouchPotato removed.$CEND"

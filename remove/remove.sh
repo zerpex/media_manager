@@ -1,9 +1,9 @@
 #!/bin/bash
 # This script automatically install some services to any debian based distro.
 
-ip=`ifconfig eth0 | sed -n 2p | awk -F: '{print $2'} | awk '{print $1'}`
-user=`whoami`
-done=""
+#  includes
+INCLUDES="./"
+. "$INCLUDES"variables.sh
 
 while :
 do

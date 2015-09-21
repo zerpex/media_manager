@@ -1,2 +1,5 @@
 HP_USER=www-data
+HP_GROUP=www-data
+HP_HOME=/opt/headphones
+HP_DATA=/opt/headphones
 HP_OPTS=" --config=/opt/headphones/config.ini"

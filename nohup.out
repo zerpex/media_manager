@@ -1,0 +1,67 @@
+20150921 10:09:20 [main] INFO  com.ubooquity.Ubooquity - Running with the following parameters - headless: true, port: 2022, webadmin: true, host: null, debug: false, execdir: /opt/ubooquity
+20150921 10:09:20 [main] INFO  com.ubooquity.Ubooquity - #############################
+20150921 10:09:20 [main] INFO  com.ubooquity.Ubooquity - #     Starting Ubooquity    #
+20150921 10:09:20 [main] INFO  com.ubooquity.Ubooquity - #############################
+20150921 10:09:20 [main] INFO  com.ubooquity.Ubooquity - Java version: 1.8.0_60
+20150921 10:09:20 [main] INFO  com.ubooquity.Ubooquity - Java vendor: Oracle Corporation
+20150921 10:09:20 [main] INFO  com.ubooquity.Ubooquity - Max heap size available: 495 MB
+20150921 10:09:20 [main] INFO  com.ubooquity.Ubooquity - OS name: Linux
+20150921 10:09:20 [main] INFO  com.ubooquity.Ubooquity - OS version: 4.1.6-v7+
+20150921 10:09:20 [main] INFO  com.ubooquity.Ubooquity - OS architecture: arm
+20150921 10:09:20 [main] INFO  com.ubooquity.Ubooquity - Loading local version info
+20150921 10:09:20 [main] INFO  com.ubooquity.Ubooquity - Ubooquity 1.8.2 built on 2015-08-23 at 16:10
+20150921 10:09:21 [main] INFO  com.ubooquity.Ubooquity - Creating application folders
+20150921 10:09:21 [main] INFO  com.ubooquity.Ubooquity - Loading preferences
+20150921 10:09:29 [main] INFO  com.ubooquity.c - Starting internal server...
+20150921 10:09:29 [Scanner thread] INFO  com.ubooquity.data.feeder.a - Scanning books directories
+20150921 10:09:29 [Scanner thread] INFO  com.ubooquity.data.feeder.a - Finished scanning books directories, populating folders content cache
+20150921 10:09:29 [Scanner thread] INFO  com.ubooquity.data.feeder.a - Books folder content cache populated
+20150921 10:09:29 [Scanner thread] INFO  com.ubooquity.data.feeder.a - Scanning comics directories
+20150921 10:09:29 [Scanner thread] INFO  com.ubooquity.data.feeder.a - Finished scanning comics directories, populating folders content cache
+20150921 10:09:29 [Scanner thread] INFO  com.ubooquity.data.feeder.a - Comics folder content cache populated
+20150921 10:09:29 [main] INFO  com.ubooquity.c - Reverse proxy prefix is not activated
+20150921 10:09:29 [main] INFO  com.ubooquity.c - Internal server started. Listening on port 2022
+Enter Q to exit
+20150921 10:09:30 [Timer-0] INFO  com.ubooquity.Ubooquity - Checking latest available Ubooquity version from website
+20150921 10:09:32 [Timer-0] INFO  com.ubooquity.Ubooquity - Latest version available: 1.8.2 - Current version: 1.8.2
+20150921 10:15:33 [pool-1-thread-1] INFO  com.ubooquity.provider.webadmin.j - Admin successfuly logged in
+20150921 10:15:39 [Thread-3] WARN  com.ubooquity.Ubooquity - Stopping server in shutdown hook
+20150921 10:15:39 [Thread-3] INFO  com.ubooquity.c - Stopping internal server...
+20150921 10:15:39 [Thread-3] INFO  com.ubooquity.data.feeder.a - Aborting content scan...
+20150921 10:15:39 [Thread-3] INFO  com.ubooquity.data.feeder.a - Waiting for scanner thread to stop
+20150921 10:15:39 [Thread-3] INFO  com.ubooquity.data.feeder.a - Scanner thread stopped
+20150921 10:15:39 [Thread-3] INFO  com.ubooquity.c - Internal server stopped
+20150921 10:15:39 [Thread-3] INFO  com.ubooquity.Ubooquity - Ubooquity has closed.
+20150921 10:16:00 [main] INFO  com.ubooquity.Ubooquity - Running with the following parameters - headless: true, port: 2022, webadmin: true, host: null, debug: false, execdir: /opt/ubooquity
+20150921 10:16:01 [main] INFO  com.ubooquity.Ubooquity - #############################
+20150921 10:16:01 [main] INFO  com.ubooquity.Ubooquity - #     Starting Ubooquity    #
+20150921 10:16:01 [main] INFO  com.ubooquity.Ubooquity - #############################
+20150921 10:16:01 [main] INFO  com.ubooquity.Ubooquity - Java version: 1.8.0_60
+20150921 10:16:01 [main] INFO  com.ubooquity.Ubooquity - Java vendor: Oracle Corporation
+20150921 10:16:01 [main] INFO  com.ubooquity.Ubooquity - Max heap size available: 495 MB
+20150921 10:16:01 [main] INFO  com.ubooquity.Ubooquity - OS name: Linux
+20150921 10:16:01 [main] INFO  com.ubooquity.Ubooquity - OS version: 4.1.6-v7+
+20150921 10:16:01 [main] INFO  com.ubooquity.Ubooquity - OS architecture: arm
+20150921 10:16:01 [main] INFO  com.ubooquity.Ubooquity - Loading local version info
+20150921 10:16:01 [main] INFO  com.ubooquity.Ubooquity - Ubooquity 1.8.2 built on 2015-08-23 at 16:10
+20150921 10:16:01 [main] INFO  com.ubooquity.Ubooquity - Creating application folders
+20150921 10:16:01 [main] INFO  com.ubooquity.Ubooquity - Loading preferences
+20150921 10:16:11 [main] INFO  com.ubooquity.c - Starting internal server...
+20150921 10:16:11 [Scanner thread] INFO  com.ubooquity.data.feeder.a - Scanning books directories
+20150921 10:16:11 [Scanner thread] INFO  com.ubooquity.data.feeder.a - Finished scanning books directories, populating folders content cache
+20150921 10:16:11 [Scanner thread] INFO  com.ubooquity.data.feeder.a - Books folder content cache populated
+20150921 10:16:11 [Scanner thread] INFO  com.ubooquity.data.feeder.a - Scanning comics directories
+20150921 10:16:11 [Scanner thread] INFO  com.ubooquity.data.feeder.a - Finished scanning comics directories, populating folders content cache
+20150921 10:16:11 [Scanner thread] INFO  com.ubooquity.data.feeder.a - Comics folder content cache populated
+20150921 10:16:11 [main] INFO  com.ubooquity.c - Reverse proxy prefix is not activated
+20150921 10:16:11 [main] INFO  com.ubooquity.c - Internal server started. Listening on port 2022
+Enter Q to exit
+20150921 10:16:12 [Timer-0] INFO  com.ubooquity.Ubooquity - Checking latest available Ubooquity version from website
+20150921 10:16:12 [Timer-0] INFO  com.ubooquity.Ubooquity - Latest version available: 1.8.2 - Current version: 1.8.2
+20150921 10:16:35 [Thread-3] WARN  com.ubooquity.Ubooquity - Stopping server in shutdown hook
+20150921 10:16:35 [Thread-3] INFO  com.ubooquity.c - Stopping internal server...
+20150921 10:16:35 [Thread-3] INFO  com.ubooquity.data.feeder.a - Aborting content scan...
+20150921 10:16:35 [Thread-3] INFO  com.ubooquity.data.feeder.a - Waiting for scanner thread to stop
+20150921 10:16:35 [Thread-3] INFO  com.ubooquity.data.feeder.a - Scanner thread stopped
+20150921 10:16:35 [Thread-3] INFO  com.ubooquity.c - Internal server stopped
+20150921 10:16:35 [Thread-3] INFO  com.ubooquity.Ubooquity - Ubooquity has closed.
