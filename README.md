@@ -15,9 +15,15 @@ I also included :
 - Powerline-shell : for a beautifull prompt :)
 
 How to use :
-- git clone
-- chmod +x *.sh && chmod +x */*.sh
-- sudo ./media_manager.sh
+- Clone repository :
+git clone https://github.com/zerpex/media_manager.git 
+
+- Have a look at variables.sh in order to change options
+vi variables.sh
+
+- Launch the scrip :
+sudo ./media_manager.sh
+
 - Follow the menus :)
 
 To do :
