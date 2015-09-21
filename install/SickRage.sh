@@ -51,7 +51,7 @@ sleep 2
 echo " "
 echo -e "${CYELLOW} Updating Sickrage's configuration...$CEND"
 sudo sed -i 's/web_port = 8081/web_port = '"$SRPORT"'/g' $SRDATA/config.ini
-sudo sed -i 's/web_root = \//web_root = '"$SRWEB"'\//g' $SRDATA/config.ini
+sudo sed -i 's/web_root = ""\//web_root = "'"$SRWEB"'\/"/g' $SRDATA/config.ini
 
 echo " "
 echo -e "${CYELLOW} Start Sickrage automatically when server start...$CEND"
