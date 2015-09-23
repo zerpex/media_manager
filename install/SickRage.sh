@@ -16,7 +16,7 @@ echo -e "${CGREEN}     Installing SickRage$CEND"
 echo -e "${CBLUE}-----------------------------$CEND"
 echo " "
 echo -e "${CYELLOW} Installing pre-requsites...$CEND"
-sudo apt-get -y install python python-cheetah python-mako python3-lxml python3-openssl
+sudo apt-get -y install python python-cheetah python-mako python-lxml python-openssl python3-lxml python3-openssl
 
 echo -e "${CYELLOW} Cloning git repository...$CEND"
 sudo mkdir -p $SRPATH
