@@ -16,7 +16,7 @@ echo -e "${CGREEN}     Installing Maraschino$CEND"
 echo -e "${CBLUE}-----------------------------$CEND"
 echo " "
 echo -e "${CYELLOW} Cloning git repository...$CEND"
-sudo mkdir -p /opt/maraschino
+sudo mkdir -p $MSPATH
 sudo git clone https://github.com/mrkipling/maraschino.git $MSPATH
 
 echo " "

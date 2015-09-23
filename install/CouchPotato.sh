@@ -16,13 +16,13 @@ echo -e "${CGREEN}     Installing Couchpotato$CEND"
 echo -e "${CBLUE}-----------------------------$CEND"
 echo " "
 echo -e "${CYELLOW} Cloning git repository...$CEND"
-sudo mkdir -p /opt/couchpotato
+sudo mkdir -p $CPPATH
 sudo git clone https://github.com/RuudBurger/CouchPotatoServer $CPPATH
 
 echo " "
 echo -e "${CYELLOW} Create config file and launcher...$CEND"
 #--- startup file installation
-sudo cp /opt/couchpotato/init/ubuntu /etc/init.d/couchpotato
+sudo cp $CPPATH/init/ubuntu /etc/init.d/couchpotato
 sudo chmod +x /etc/init.d/couchpotato
 #--- default file generation
 sudo echo "CP_USER=$CPUSER" > startup_scripts/couchpotato.default

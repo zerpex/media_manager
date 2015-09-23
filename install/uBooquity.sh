@@ -34,7 +34,7 @@ sudo mkdir -p $UBDATA
 echo " "
 echo -e "${CYELLOW} Downloading latest version...$CEND"
 sudo wget "http://vaemendis.net/ubooquity/service/download.php" -O $UBPATH/ubooquity.zip
-sudo unzip $UBPATH/ubooquity*.zip -d /opt/ubooquity/
+sudo unzip $UBPATH/ubooquity*.zip -d $UBPATH
 sudo rm $UBPATH/ubooquity*.zip
 
 echo " "

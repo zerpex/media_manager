@@ -19,13 +19,13 @@ echo -e "${CYELLOW} Installing pre-requsites...$CEND"
 sudo apt-get -y install python python-cheetah python-mako python3-lxml python3-openssl
 
 echo -e "${CYELLOW} Cloning git repository...$CEND"
-sudo mkdir -p /opt/sickrage
+sudo mkdir -p $SRPATH
 sudo git clone -b master https://github.com/SiCKRAGETV/SickRage.git $SRPATH
 
 echo " "
 echo -e "${CYELLOW} Create config file and launcher...$CEND"
 #--- startup file installation
-sudo cp /opt/sickrage/runscripts/init.debian /etc/init.d/sickrage
+sudo cp $SRPATH/runscripts/init.debian /etc/init.d/sickrage
 sudo chmod +x /etc/init.d/sickrage
 #--- default file generation
 sudo echo "SR_USER=$SRUSER" > startup_scripts/sickrage.default

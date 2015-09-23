@@ -16,13 +16,13 @@ echo -e "${CGREEN}     Installing HeadPhones$CEND"
 echo -e "${CBLUE}-----------------------------$CEND"
 echo " "
 echo -e "${CYELLOW} Cloning git repository...$CEND"
-sudo mkdir -p /opt/headphones
+sudo mkdir -p $HPPATH
 sudo git clone https://github.com/rembo10/headphones.git $HPPATH
 
 echo " "
 echo -e "${CYELLOW} Create config file and launcher...$CEND"
 #--- startup file installation
-sudo cp /opt/headphones/init-scripts/init.ubuntu /etc/init.d/headphones
+sudo cp $HPPATH/init-scripts/init.ubuntu /etc/init.d/headphones
 sudo chmod +x /etc/init.d/headphones
 #--- default file generation
 sudo echo "HP_USER=$HPUSER" > startup_scripts/headphones.default
