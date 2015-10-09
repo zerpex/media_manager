@@ -16,7 +16,7 @@ echo -e "${CGREEN}     Installing uBooquity$CEND"
 echo -e "${CBLUE}-----------------------------$CEND"
 echo " "
 JAVA8=`dpkg -l |grep java8 | awk '{ print $2 }'`
-if [ "JAVA8" != "oracle-java8-installer"]
+if [ "JAVA8" != "oracle-java8-installer" ]
 then
 	echo -e "${CYELLOW} Installing pre-requsites (Java 8)...$CEND"
 	echo "deb http://ppa.launchpad.net/webupd8team/java/ubuntu trusty main" | sudo tee -a /etc/apt/sources.list.d/webupd8team-java.list
