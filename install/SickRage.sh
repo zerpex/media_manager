@@ -20,7 +20,7 @@ sudo apt-get -y install python python-cheetah python-mako python-lxml python-ope
 
 echo -e "${CYELLOW} Cloning git repository...$CEND"
 sudo mkdir -p $SRPATH
-sudo git clone -b master https://github.com/SiCKRAGETV/SickRage.git $SRPATH
+sudo git clone -b master https://github.com/SickRage/SickRage.git $SRPATH
 
 echo " "
 echo -e "${CYELLOW} Create config file and launcher...$CEND"
