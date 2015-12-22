@@ -19,13 +19,9 @@ do
     ----------------------------------------------------------
     Please enter your choice:
 
-    (1) DNS with ad-blocker
-    (2) SickRage
-    (3) uBooquity
-    (4) ChouchPotato
-    (5) HeadPhones
-    (6) Maraschino
-    (7) Powerline-shell
+    (1) Transmission
+    (2) ruTorrent
+    (3) Seedbox Manager
 
     (0) Install ALL apps ( for fresh server install )
 
@@ -35,20 +31,12 @@ do
 EOF
     read -n1 -s
     case "$REPLY" in
-    "1")source install/DNSmasq.sh;;
-    "2")source install/SickRage.sh;;
-    "3")source install/uBooquity.sh;;
-    "4")source install/CouchPotato.sh;;
-    "5")source install/HeadPhones.sh;;
-    "6")source install/Maraschino.sh;;
-    "7")source install/Powerline-shell.sh;;
-    "0")source install/DNSmasq.sh
-        source install/SickRage.sh
-        source install/uBooquity.sh
-        source install/CouchPotato.sh
-        source install/HeadPhones.sh
-        source install/Maraschino.sh
-        source install/Powerline-shell.sh;;
+    "1")source install/transmission.sh;;
+    "2")source install/ruTorrent.sh;;
+    "3")source install/Seedbox_Manager.sh;;
+    "0")source install/transmission.sh
+        source install/ruTorrent.sh
+        source install/Seedbox_Manager.sh;;
     [rR] | [r|R])echo " "
         echo "=============================="
         echo "  Important notes :"

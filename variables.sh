@@ -10,6 +10,22 @@ BCKPATH="media_manager.20150917/backup/confs"					# Backup path. Default is "bac
 ################
 # Apps specific
 
+# Couchpotato
+CPUSER=www-data                                                                 # User to use for starting.
+CPGROUP=www-data                                                                # Group to use for starting.
+CPPATH="/opt/couchpotato"                                                       # Couchpotato install path. Default is "/opt/couchpotato"
+CPDATA="/opt/couchpotato"                                                       # Data user path (databases, conf...). Default is "/opt/couchpotato"
+CPPORT="42003"                                                                  # Port to access app through your browser. Default is "42003"
+CPWEB="movies"                                                                  # Reverse URL to access app through your browser. Apply only if nginx is installed. Default is "/movies/"
+
+# Headphones
+HPUSER=www-data                                                                 # User to use for starting.
+HPGROUP=www-data                                                                # Group to use for starting.
+HPPATH="/opt/headphones"                                                        # Headphones install path. Default is "/opt/headphones"
+HPDATA="/opt/headphones"                                                        # Data user path (databases, conf...). Default is "/opt/headphones"
+HPPORT="42004"                                                                  # Port to access app through your browser. Default is "42004"
+HPWEB="music"                                                                   # Reverse URL to access app through your browser. Apply only if nginx is installed. Default is "/music/"
+
 # Maraschino
 MSPATH="/opt/maraschino"							# Maraschino install path. Default is "/opt/maraschino"	
 MSUSER=www-data									# User to use for starting.
@@ -20,9 +36,17 @@ MSWEB=""									# Reverse URL to access app through your browser. Apply only if
 SRUSER=www-data									# User to use for starting.
 SRGROUP=www-data								# Group to use for starting.
 SRPATH="/opt/sickrage"								# Install path. Default is "/opt/sickrage"	
-SRDATA="/opt/sickrage"								# Data user path (databases, conf...). Default is "/opt/couchpotato"
+SRDATA="/opt/sickrage"								# Data user path (databases, conf...). Default is "/opt/sickrage"
 SRPORT="42001"									# Port to access app through your browser. Default is "42001"
 SRWEB="tv"									# Reverse URL to access app through your browser. Apply only if nginx is installed. Default is "/tv/"
+
+# Transmission
+TRUSER=$CUSER                                                                   # User to use for starting.
+TRGROUP=debian-transmission                                                     # Group to use for starting.
+TRPATH="/opt/transmission"                                                      # Install path. Default is "/opt/transmission"
+TRDATA="/home/$TRUSER"                                                          # Data user path (databases, conf...). Default is "/home/www-data"
+TRPORT="42005"                                                                  # Port to access app through your browser. Default is "42005"
+TRWEB="tr"                                                                      # Reverse URL to access app through your browser. Apply only if nginx is installed. Default is "/tr/"
 
 # uBooquity
 UBUSER=www-data									# User to use for starting.
@@ -32,22 +56,6 @@ UBDATA="/opt/ubooquity"								# uBooquity user path (databases, conf...). Defau
 UBPORT="42002"									# Port to access app through your browser. Default is "42002"
 UBWEB="bd"									# Reverse URL to access app through your browser. Apply only if nginx is installed. Default is "/bd/"
 UBRAM=512m									# RAM allocated to ubooquity's jvm. Default is 512m
-
-# Couchpotato
-CPUSER=www-data									# User to use for starting.
-CPGROUP=www-data								# Group to use for starting.
-CPPATH="/opt/couchpotato"							# Couchpotato install path. Default is "/opt/couchpotato"	
-CPDATA="/opt/couchpotato"							# Data user path (databases, conf...). Default is "/opt/couchpotato"
-CPPORT="42003"									# Port to access app through your browser. Default is "42003"
-CPWEB="movies"									# Reverse URL to access app through your browser. Apply only if nginx is installed. Default is "/movies/"
-
-# Headphones
-HPUSER=www-data									# User to use for starting.
-HPGROUP=www-data								# Group to use for starting.
-HPPATH="/opt/headphones"							# Headphones install path. Default is "/opt/headphones"
-HPDATA="/opt/headphones"							# Data user path (databases, conf...). Default is "/opt/headphones"
-HPPORT="42004"									# Port to access app through your browser. Default is "42004"
-HPWEB="music"									# Reverse URL to access app through your browser. Apply only if nginx is installed. Default is "/music/"
 
 ################
 # Other variables 
