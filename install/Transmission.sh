@@ -106,7 +106,7 @@ echo
 
 echo " "
 echo -e $YELLOW"  Copying settings file and setting permissions..."$END
-sudo cp $SCRIPTPATH/transmission-initial-settings.json $TRDATA/.config/transmission/settings.json || { echo -e $RED'Initial settings move failed.'$END ; exit 1; }
+sudo cp startup_scripts/transmission-initial-settings.json $TRDATA/.config/transmission/settings.json || { echo -e $RED'Initial settings move failed.'$END ; exit 1; }
 cd $TRDATA/.config/transmission
 sudo chown $TRUSER:$TRGROUP settings.json  || { echo -e $RED'Chown settings.json failed'$END ; exit 1; }
 sudo rm /var/lib/transmission-daemon/info/settings.json > /dev/null 2>&1
