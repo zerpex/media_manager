@@ -34,27 +34,36 @@ do
     --------------------------------------------------------------
     Please enter your choice:
 
-    (1) Install apps
-    (2) Backup configurations of installed apps
-    (3) Remove apps
+    (1) Install Tools
+    (2) Install Medias manager's Apps
+    (3) Install Seedbox Apps (NOT READY YET)
+
+    (4) Backup apps configurations
+    (5) Restore apps configurations (NOT READY YET)
+
+    (6) Remove apps
 	
-    (4) Upgrade the system
-    (5) Backup server global configuration
-    (6) Restore server global configuration
+    (7) Upgrade the system
+    (8) Backup server global configuration
+    (9) Restore server global configuration
     
            (Q)uit
     ---------------------------------------------------------------
 EOF
     read -n1 -s
     case "$REPLY" in
-    "1")source install/install.sh;;
-	"2")source backup/save_conf.sh;;
-	"3")source remove/remove.sh;;
-	"4")echo "Upgrading the system..."
+    "1")source install/tools.sh;;
+    "2")source install/medias.sh;;
+    "3")#source install/seedbox.sh;;
+        source media_manager.sh;;
+    "4")source backup/save_conf.sh;;
+    "5")source media_manager.sh;;
+    "6")source remove/remove.sh;;
+    "7")echo "Upgrading the system..."
         apt-get -y upgrade ;;
-	"5")source backup/save_global_conf.sh;;
-	"6")source backup/restore_global_conf.sh;;
-	[qQ] | [q|Q])exit;;
+    "8")source backup/save_global_conf.sh;;
+    "9")source backup/restore_global_conf.sh;;
+    [qQ] | [q|Q])exit;;
     esac
     sleep 1
 done
