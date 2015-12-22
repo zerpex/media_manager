@@ -146,7 +146,8 @@ if [ -z "$TPASS" ]
    echo -e '    WebUI password set to: '$BLUE$TPASS$END
 fi
 sed -i 's|WEBUI_PASSWORD|'$TPASS'|g' $TRDATA/.config/transmission/settings.json || { echo -e $RED'Setting new password in settings.json failed.'$END ; exit 1; }
-sed -i 's|USER_NAME|'$TRUSER'|g' $TRDATA/.config/transmission/settings.json || { echo -e $RED'Replacing username in settings-json failed.'$END ; exit 1; }
+sed -i 's|TRDATA|'$TRDATA'|g' $TRDATA/.config/transmission/settings.json || { echo -e $RED'Replacing username in settings-json failed.'$END ; exit 1; }
+sed -i 's|TRWEB|'$TRWEB'|g' $TRDATA/.config/transmission/settings.json || { echo -e $RED'Replacing webroot in settings-json failed.'$END ; exit 1; }
 
 echo 
 sleep 1
