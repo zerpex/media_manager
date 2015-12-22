@@ -52,8 +52,8 @@ sleep 2
 
 echo " "
 echo -e "${CYELLOW} Updating Couchpotato's configuration...$CEND"
-sudo sed -i 's/port = 5050/port = '"$CPPORT"'/g' $CPDATA/settings.conf
-sudo sed -i 's/url_base =/url_base = '"$CPWEB"'/g' $CPDATA/settings.conf
+sudo sed -i 's/port = 5050/port = '"$CPPORT"'/g' $CPDATA/settings.conf || { echo -e $RED'Replacing port failed.'$END ; pause; }
+sudo sed -i 's/url_base =/url_base = '"$CPWEB"'/g' $CPDATA/settings.conf || { echo -e $RED'Replacing web url failed.'$END ; pause; }
 
 echo " "
 echo -e "${CYELLOW} Start Couchpotato automatically when server start...$CEND"
@@ -63,6 +63,7 @@ echo " "
 echo -e "${CYELLOW} Turning services on...$CEND"
 sudo service couchpotato start
 CPPID=`sudo cat /var/run/couchpotato/couchpotato.pid`
-done+=(couchpotato)
+echo "couchpotato" >> installed_apps.txt
 
-echo "OK. CouchPotato installed and running."
+echo -e "${CGREEN} OK. Couchpotato installed and running at http://$IP:$CPPORT $CEND"
+pause 'Press [Enter] key to continue...'

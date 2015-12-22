@@ -88,5 +88,7 @@ echo " "
 echo -e "${CYELLOW} Turning services on...$CEND"
 sudo service ubooquity start
 
-echo -e "${CYELLOW}OK. uBooquity installed and running.$CEND"
-done+=(ubooquity)
+echo "ubooquity" >> installed_apps.txt
+
+echo -e "${CGREEN} OK. Ubooquity installed and running at http://$IP:$UBPORT $CEND"
+pause 'Press [Enter] key to continue...'

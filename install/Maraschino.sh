@@ -39,7 +39,8 @@ sudo update-rc.d maraschino defaults
 echo " "
 echo -e "${CYELLOW} Turning services on...$CEND"
 sudo service maraschino start
-MSPID=`sudo cat /var/run/maraschino/maraschino.pid`
-done+=(maraschino)
 
-echo -e "${CGREEN} OK. Maraschino installed and running.$CEND"
+echo "maraschino" >> installed_apps.txt
+
+echo -e "${CGREEN} OK. Maraschino installed and running at http://$IP:$TRPORT $CEND"
+pause 'Press [Enter] key to continue...'

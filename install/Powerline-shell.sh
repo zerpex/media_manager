@@ -74,5 +74,8 @@ do
 done
 sudo rm /home/root
 
+echo "Powerline Shell" >> installed_apps.txt
+
 echo -e "${CGREEN} OK. Powerline installed and running.$CEND"
-done+=(powerline)
+echo "Please add a Powerline type font to your terminal. check https://github.com/powerline/fonts"
+pause 'Press [Enter] key to continue...'

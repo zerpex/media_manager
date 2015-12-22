@@ -62,8 +62,8 @@ sudo sed -i 's/http_host = localhost/http_host = 0.0.0.0/g' $HPDATA/config.ini
 echo " "
 echo -e "${CYELLOW} Turning services on...$CEND"
 sudo service headphones start
-HPPID=`sudo cat /var/run/headphones/headphones.pid`
-done+=(headphones)
+echo "headphones" >> installed_apps.txt
 
-echo -e "${CGREEN} OK. HeadPhones installed and running with pid $HPPID.$CEND"
+echo -e "${CGREEN} OK. Headphones installed and running at http://$IP:$HPPORT $CEND"
+pause 'Press [Enter] key to continue...'
 

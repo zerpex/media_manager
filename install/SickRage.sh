@@ -50,8 +50,8 @@ sleep 2
 
 echo " "
 echo -e "${CYELLOW} Updating Sickrage's configuration...$CEND"
-sudo sed -i 's/web_port = 8081/web_port = '"$SRPORT"'/g' $SRDATA/config.ini
-sudo sed -i 's/web_root = ""\//web_root = "'"$SRWEB"'\/"/g' $SRDATA/config.ini
+sudo sed -i 's/web_port = 8081/web_port = '"$SRPORT"'/g' $SRDATA/config.ini || { echo -e $RED'Replacing web port failed.'$END ; pause; }
+sudo sed -i 's/web_root = ""\//web_root = "'"$SRWEB"'\/"/g' $SRDATA/config.ini || { echo -e $RED'Replacing web root failed.'$END ; pause; }
 
 echo " "
 echo -e "${CYELLOW} Start Sickrage automatically when server start...$CEND"
@@ -60,7 +60,7 @@ sudo update-rc.d sickrage defaults
 echo " "
 echo -e "${CYELLOW} Turning services on...$CEND"
 sudo service sickrage start
-SRPID=`sudo cat /var/run/sickrage/sickrage.pid`
-done+=(sickrage)
+echo "sickrage" >> installed_apps.txt
 
-echo -e "${CGREEN} OK. SickRage installed and running with pid $SRPID.$CEND"
+echo -e "${CGREEN} OK SickRage installed and running at http://$IP:$SRPORT $CEND"
+pause 'Press [Enter] key to continue...'

@@ -65,6 +65,8 @@ echo " "
 echo -e "${CYELLOW} Add job to crontab to update ad-lists every nights...$CEND"
 line="2 15 * * * /usr/local/bin/gravity.sh"
 (sudo crontab -u root -l; sudo echo "$line" ) | sudo crontab -u root -
-done+=(adblock)
 
-echo -e "${CGREEN} OK. DNS whith ad-blocker installed.$CEND"
+echo "dnsmasq" >> installed_apps.txt
+
+echo -e "${CGREEN} OK. DNSmasq installed and running. Please add $IP as your primary DNS.$CEND"
+pause 'Press [Enter] key to continue...'

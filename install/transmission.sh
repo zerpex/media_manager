@@ -175,7 +175,7 @@ echo
 sleep 1
 
 TRPID=`sudo cat /var/run/sickrage/sickrage.pid`
-done+=(transmission)
+echo "transmission" >> installed_apps.txt
 
 echo -e "${CGREEN} OK. Transmission installed and running at http://$IP:$TRPORT $CEND"
 pause 'Press [Enter] key to continue...'
