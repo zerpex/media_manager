@@ -35,6 +35,26 @@ then
 	echo debconf shared/accepted-oracle-license-v1-1 seen true | sudo debconf-set-selections
 	sudo apt-get install -y oracle-java8-installer
 fi
+
+GREPOUT=`grep $UBUSER /etc/passwd`
+if [ "$GREPOUT" == "" ]
+then
+    echo " "
+	echo "${CRED}   User does not exist. Do you want to create it (y/n) ?$END"
+    read GO
+    if [ "$GO" == "y" ]
+    then
+		read -s -p "Enter password : " password
+		egrep "^$UBUSER" /etc/passwd >/dev/null
+		pass=$(perl -e 'print crypt($ARGV[0], "password")' $password)
+		sudo useradd -m -p $pass $UBUSER
+		[ $? -eq 0 ] && echo "${CGREEN}  User has been added to system!$END" || echo -e "${CRED}  Failed to add user!$END" ; exit 1; }
+		sudo useradd -G $UBGROUP $UBUSER || { echo -e $RED'Adding $UBGROUP group to $UBUSER failed.'$END ; exit 1; }
+    fi
+else
+    echo " "
+	echo "${CGREEN}   User already exists. Nothing changed...$END"
+fi
 	
 echo " "
 echo -e "${CYELLOW} Create config file and launcher...$CEND"

@@ -22,6 +22,26 @@ echo -e "${CYELLOW} Cloning git repository...$CEND"
 sudo mkdir -p $SRPATH
 sudo git clone -b master https://github.com/SickRage/SickRage.git $SRPATH
 
+GREPOUT=`grep $SRUSER /etc/passwd`
+if [ "$GREPOUT" == "" ]
+then
+    echo " "
+	echo "${CRED}   User does not exist. Do you want to create it (y/n) ?$END"
+    read GO
+    if [ "$GO" == "y" ]
+    then
+		read -s -p "Enter password : " password
+		egrep "^$SRUSER" /etc/passwd >/dev/null
+		pass=$(perl -e 'print crypt($ARGV[0], "password")' $password)
+		sudo useradd -m -p $pass $SRUSER
+		[ $? -eq 0 ] && echo "${CGREEN}  User has been added to system!$END" || echo -e "${CRED}  Failed to add user!$END" ; exit 1; }
+		sudo useradd -G $SRGROUP $SRUSER || { echo -e $RED'Adding $SRGROUP group to $SRUSER failed.'$END ; exit 1; }
+    fi
+else
+    echo " "
+	echo "${CGREEN}   User already exists. Nothing changed...$END"
+fi
+
 echo " "
 echo -e "${CYELLOW} Create config file and launcher...$CEND"
 #--- startup file installation

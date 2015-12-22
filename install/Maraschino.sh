@@ -20,6 +20,25 @@ sudo mkdir -p $MSPATH
 sudo git clone https://github.com/mrkipling/maraschino.git $MSPATH
 
 echo " "
+GREPOUT=`grep $MSUSER /etc/passwd`
+if [ "$GREPOUT" == "" ]
+then
+    echo " "
+	echo "${CRED}   User does not exist. Do you want to create it (y/n) ?$END"
+    read GO
+    if [ "$GO" == "y" ]
+    then
+		read -s -p "Enter password : " password
+		egrep "^$MSUSER" /etc/passwd >/dev/null
+		pass=$(perl -e 'print crypt($ARGV[0], "password")' $password)
+		sudo useradd -m -p $pass $MSUSER
+		[ $? -eq 0 ] && echo "${CGREEN}  User has been added to system!$END" || echo -e "${CRED}  Failed to add user!$END" ; exit 1; }
+		sudo useradd -G $MSGROUP $MSUSER || { echo -e $RED'Adding $MSGROUP group to $MSUSER failed.'$END ; exit 1; }
+    fi
+else
+    echo " "
+	echo "${CGREEN}   User already exists. Nothing changed...$END"
+fi
 
 echo -e "${CYELLOW} Create config file and launcher...$CEND"
 sudo cp $MSPATH/initd /etc/init.d/maraschino
