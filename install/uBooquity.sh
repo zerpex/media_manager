@@ -2,7 +2,7 @@
 # This script installs uBooquity.
 #
 # Author	: zerpex
-# Last update	: 2015-09-18
+# Last update	: 2015-12-22
 
 #  includes
 INCLUDES="./"
@@ -18,11 +18,19 @@ echo " "
 JAVA8=`dpkg -l |grep java8 | awk '{ print $2 }'`
 if [ "JAVA8" != "oracle-java8-installer" ]
 then
-	echo -e "${CYELLOW} Installing pre-requsites (Java 8)...$CEND"
-	echo "deb http://ppa.launchpad.net/webupd8team/java/ubuntu trusty main" | sudo tee -a /etc/apt/sources.list.d/webupd8team-java.list
-	echo "deb-src http://ppa.launchpad.net/webupd8team/java/ubuntu trusty main" | sudo tee -a /etc/apt/sources.list.d/webupd8team-java.list
-	sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys EEA14886
-	sudo apt-get update
+	echo -e "${CYELLOW} Adding Java8 repository...$END"
+	GREPOUT=$(grep ^ /etc/apt/sources.list /etc/apt/sources.list.d/* | grep webupd8team)
+	if [ "$GREPOUT" == "" ]; then
+		echo -e "${CYELLOW} Installing pre-requsites (Java 8)...$CEND"
+		echo "deb http://ppa.launchpad.net/webupd8team/java/ubuntu trusty main" | sudo tee -a /etc/apt/sources.list.d/webupd8team-java.list
+		echo "deb-src http://ppa.launchpad.net/webupd8team/java/ubuntu trusty main" | sudo tee -a /etc/apt/sources.list.d/webupd8team-java.list
+		sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys EEA14886
+		echo -e "${CYELLOW} Refreshing list again...$END"
+		sudo apt-get update
+	else
+		echo "${CRED}   Java8 repository already exists. Nothing added...$END"
+	fi
+	echo "${CYELLOW} Installing Java8...$END"
 	echo debconf shared/accepted-oracle-license-v1-1 select true | sudo debconf-set-selections
 	echo debconf shared/accepted-oracle-license-v1-1 seen true | sudo debconf-set-selections
 	sudo apt-get install -y oracle-java8-installer
