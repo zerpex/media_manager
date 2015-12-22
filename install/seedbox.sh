@@ -20,8 +20,8 @@ do
     Please enter your choice:
 
     (1) Transmission
-    (2) ruTorrent
-    (3) Seedbox Manager
+    (2) ruTorrent (NOT READY YET)
+    (3) Seedbox Manager (NOT READY YET)
 
     (0) Install ALL apps ( for fresh server install )
 
@@ -32,11 +32,13 @@ EOF
     read -n1 -s
     case "$REPLY" in
     "1")source install/Transmission.sh;;
-    "2")source install/ruTorrent.sh;;
-    "3")source install/Seedbox_Manager.sh;;
-    "0")source install/Transmission.sh
-        source install/ruTorrent.sh
-        source install/Seedbox_Manager.sh;;
+    "2")#source install/ruTorrent.sh;;
+	source install/seedbox.sh;;
+    "3")#source install/Seedbox_Manager.sh;;
+	source install/seedbox.sh;;
+    "0")source install/Transmission.sh;;
+        #source install/ruTorrent.sh
+        #source install/Seedbox_Manager.sh;;
     [rR] | [r|R])echo " "
         echo "=============================="
         echo "  Important notes :"
