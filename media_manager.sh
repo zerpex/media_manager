@@ -36,7 +36,7 @@ do
 
     (1) Install Tools
     (2) Install Medias manager's Apps
-    (3) Install Seedbox Apps (NOT READY YET)
+    (3) Install Seedbox Apps
 
     (4) Backup apps configurations
     (5) Restore apps configurations (NOT READY YET)
@@ -54,8 +54,7 @@ EOF
     case "$REPLY" in
     "1")source install/tools.sh;;
     "2")source install/medias.sh;;
-    "3")#source install/seedbox.sh;;
-        source media_manager.sh;;
+    "3")source install/seedbox.sh;;
     "4")source backup/save_conf.sh;;
     "5")source media_manager.sh;;
     "6")source remove/remove.sh;;

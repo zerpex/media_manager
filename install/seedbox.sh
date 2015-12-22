@@ -31,10 +31,10 @@ do
 EOF
     read -n1 -s
     case "$REPLY" in
-    "1")source install/transmission.sh;;
+    "1")source install/Transmission.sh;;
     "2")source install/ruTorrent.sh;;
     "3")source install/Seedbox_Manager.sh;;
-    "0")source install/transmission.sh
+    "0")source install/Transmission.sh
         source install/ruTorrent.sh
         source install/Seedbox_Manager.sh;;
     [rR] | [r|R])echo " "
