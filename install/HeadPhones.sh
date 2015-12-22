@@ -84,6 +84,6 @@ echo -e "${CYELLOW} Turning services on...$CEND"
 sudo service headphones start
 echo "headphones" >> installed_apps.txt
 
-echo -e "${CGREEN} OK. Headphones installed and running at http://$IP:$HPPORT $CEND"
+echo -e "${CGREEN} OK. Headphones installed and running at http://$IP:$HPPORT$HPWEB $CEND"
 pause 'Press [Enter] key to continue...'
 

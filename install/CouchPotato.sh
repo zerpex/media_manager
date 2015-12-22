@@ -85,5 +85,5 @@ sudo service couchpotato start
 CPPID=`sudo cat /var/run/couchpotato/couchpotato.pid`
 echo "couchpotato" >> installed_apps.txt
 
-echo -e "${CGREEN} OK. Couchpotato installed and running at http://$IP:$CPPORT $CEND"
+echo -e "${CGREEN} OK. Couchpotato installed and running at http://$IP:$CPPORT$CPWEB $CEND"
 pause 'Press [Enter] key to continue...'

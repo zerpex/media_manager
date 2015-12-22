@@ -61,5 +61,5 @@ sudo service maraschino start
 
 echo "maraschino" >> installed_apps.txt
 
-echo -e "${CGREEN} OK. Maraschino installed and running at http://$IP:$TRPORT $CEND"
+echo -e "${CGREEN} OK. Maraschino installed and running at http://$IP:$TRPORT$MSWEB $CEND"
 pause 'Press [Enter] key to continue...'

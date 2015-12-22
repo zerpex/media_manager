@@ -82,5 +82,5 @@ echo -e "${CYELLOW} Turning services on...$CEND"
 sudo service sickrage start
 echo "sickrage" >> installed_apps.txt
 
-echo -e "${CGREEN} OK SickRage installed and running at http://$IP:$SRPORT $CEND"
+echo -e "${CGREEN} OK SickRage installed and running at http://$IP:$SRPORT$SRWEB $CEND"
 pause 'Press [Enter] key to continue...'

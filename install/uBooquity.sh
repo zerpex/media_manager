@@ -110,5 +110,5 @@ sudo service ubooquity start
 
 echo "ubooquity" >> installed_apps.txt
 
-echo -e "${CGREEN} OK. Ubooquity installed and running at http://$IP:$UBPORT $CEND"
+echo -e "${CGREEN} OK. Ubooquity installed and running at http://$IP:$UBPORT$UBWEB $CEND"
 pause 'Press [Enter] key to continue...'
