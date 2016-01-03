@@ -35,7 +35,7 @@ then
 		egrep "^$HPUSER" /etc/passwd >/dev/null
 		pass=$(perl -e 'print crypt($ARGV[0], "password")' $password)
 		sudo useradd -m -p $pass $HPUSER
-		[ $? -eq 0 ] && echo "${CGREEN}  User has been added to system!$END" || echo -e "${CRED}  Failed to add user!$END" ; exit 1; }
+		[ $? -eq 0 ] && echo "${CGREEN}  User has been added to system!$END" || { echo -e "${CRED}  Failed to add user!$END" ; exit 1; }
 		sudo useradd -G $HPGROUP $HPUSER || { echo -e $RED'Adding $HPGROUP group to $HPUSER failed.'$END ; exit 1; }
     fi
 else

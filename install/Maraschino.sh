@@ -32,7 +32,7 @@ then
 		egrep "^$MSUSER" /etc/passwd >/dev/null
 		pass=$(perl -e 'print crypt($ARGV[0], "password")' $password)
 		sudo useradd -m -p $pass $MSUSER
-		[ $? -eq 0 ] && echo "${CGREEN}  User has been added to system!$END" || echo -e "${CRED}  Failed to add user!$END" ; exit 1; }
+		[ $? -eq 0 ] && echo "${CGREEN}  User has been added to system!$END" || { echo -e "${CRED}  Failed to add user!$END" ; exit 1; }
 		sudo useradd -G $MSGROUP $MSUSER || { echo -e $RED'Adding $MSGROUP group to $MSUSER failed.'$END ; exit 1; }
     fi
 else

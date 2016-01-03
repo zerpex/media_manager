@@ -35,7 +35,7 @@ then
 		egrep "^$CPUSER" /etc/passwd >/dev/null
 		pass=$(perl -e 'print crypt($ARGV[0], "password")' $password)
 		sudo useradd -m -p $pass $CPUSER
-		[ $? -eq 0 ] && echo "${CGREEN}  User has been added to system!$END" || echo -e "${CRED}  Failed to add user!$END" ; exit 1; }
+		[ $? -eq 0 ] && echo "${CGREEN}  User has been added to system!$END" || { echo -e "${CRED}  Failed to add user!$END" ; exit 1; }
 		sudo useradd -G $CPGROUP $CPUSER || { echo -e $RED'Adding $CPGROUP group to $CPUSER failed.'$END ; exit 1; }
     fi
 else

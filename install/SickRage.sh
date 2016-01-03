@@ -34,7 +34,7 @@ then
 		egrep "^$SRUSER" /etc/passwd >/dev/null
 		pass=$(perl -e 'print crypt($ARGV[0], "password")' $password)
 		sudo useradd -m -p $pass $SRUSER
-		[ $? -eq 0 ] && echo "${CGREEN}  User has been added to system!$END" || echo -e "${CRED}  Failed to add user!$END" ; exit 1; }
+		[ $? -eq 0 ] && echo "${CGREEN}  User has been added to system!$END" || { echo -e "${CRED}  Failed to add user!$END" ; exit 1; }
 		sudo useradd -G $SRGROUP $SRUSER || { echo -e $RED'Adding $SRGROUP group to $SRUSER failed.'$END ; exit 1; }
     fi
 else
