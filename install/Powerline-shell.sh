@@ -36,6 +36,7 @@ echo -e "${CYELLOW} Downloading Powerline-shell...$CEND"
 git clone https://github.com/milkbikis/powerline-shell
 cd powerline-shell
 cp config.py.dist config.py
+./install.py
 sudo touch /home/root
 
 for USERS in `ls /home`
